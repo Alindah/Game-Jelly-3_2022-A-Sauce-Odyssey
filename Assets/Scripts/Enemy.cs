@@ -4,7 +4,7 @@ public class Enemy : Entity
 {
     private void FixedUpdate()
     {
-        MoveZigzag();
+        MoveDiagonallyUpwards();
     }
 
     // Enemy moves in a straight line
@@ -13,8 +13,8 @@ public class Enemy : Entity
         transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
     }
 
-    // Enemy moves in a zig-zag pattern
-    private void MoveZigzag()
+    // Enemy moves upward diagonally
+    private void MoveDiagonallyUpwards()
     {
         // KAYLA - IMPLEMENT CODE
     }
