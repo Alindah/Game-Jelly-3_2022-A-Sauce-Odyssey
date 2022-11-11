@@ -4,6 +4,7 @@ public class Enemy : Entity
 {
     private void FixedUpdate()
     {
+        //MoveForward();
         MoveDiagonallyUpwards();
     }
 
