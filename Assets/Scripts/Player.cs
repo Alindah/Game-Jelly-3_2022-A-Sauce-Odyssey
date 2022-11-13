@@ -22,6 +22,7 @@ public class Player : Entity
             transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime);
 
         // If user presses DOWN arrow or S key, player moves down
-        // MIKE - IMPLEMENT CODE
+        if (kb.downArrowKey.IsPressed() || kb.sKey.IsPressed())
+            transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
     }
 }
