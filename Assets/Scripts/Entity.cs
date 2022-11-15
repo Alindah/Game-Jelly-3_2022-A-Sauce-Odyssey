@@ -7,4 +7,7 @@ public class Entity : MonoBehaviour
 {
     public float speed;
     public int health;
+    public int minYBoundary;
+    public int maxYBoundary;
+
 }
