@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyObjectBoundary : MonoBehaviour
 {
-    public static void destroyOutOfBoundsEntity(Entity entity)
+    public static void DestroyOutOfBoundsEntity (Entity entity)
     {
         if (entity.transform.position.x > entity.maxXDestroyBoundary || 
             entity.transform.position.x < entity.minXDestroyBoundary || 
