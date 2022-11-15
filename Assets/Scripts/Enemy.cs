@@ -17,6 +17,6 @@ public class Enemy : Entity
     // Enemy moves upward diagonally
     private void MoveDiagonallyUpwards()
     {
-        // KAYLA - IMPLEMENT CODE
+        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y + speed * Time.deltaTime);
     }
 }
