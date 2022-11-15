@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 1856137486}
   - component: {fileID: 1856137485}
   - component: {fileID: 1856137487}
+  - component: {fileID: 1856137488}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -392,11 +393,23 @@ MonoBehaviour:
   health: 1
   minYBoundary: -2
   maxYBoundary: 5
+  movementDirection: -1
+--- !u!114 &1856137488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856137484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe9cc3c734fc430eab5a1bf9a3f9686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   minXDestroyBoundary: -15
   maxXDestroyBoundary: 15
   minYDestroyBoundary: -10
   maxYDestroyBoundary: 10
-  movementDirection: -1
 --- !u!1 &1956514661
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +511,3 @@ MonoBehaviour:
   health: 1
   minYBoundary: 0
   maxYBoundary: 0
-  minXDestroyBoundary: -15
-  maxXDestroyBoundary: 15
-  minYDestroyBoundary: -10
-  maxYDestroyBoundary: 10

@@ -18,8 +18,10 @@ public class Enemy : Entity
     // General Zig-zag Enemy movement
     private void MoveEnemyZigZag()
     {
-        if (transform.position.y >= maxYBoundary) movementDirection = -1;
-        else if (transform.position.y <= minYBoundary) movementDirection = 1;
+        if (transform.position.y >= maxYBoundary) 
+            movementDirection = -1;
+        else if (transform.position.y <= minYBoundary) 
+            movementDirection = 1;
         transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y + movementDirection * speed * Time.deltaTime);
     }
 }
