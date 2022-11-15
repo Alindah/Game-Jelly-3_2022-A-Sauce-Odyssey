@@ -7,6 +7,7 @@ public class Enemy : Entity
     private void FixedUpdate()
     {
         MoveEnemyZigZag();
+        DestroyObjectBoundary.destroyOutOfBoundsEntity(this);
     }
 
     // General Zig-zag Enemy movement

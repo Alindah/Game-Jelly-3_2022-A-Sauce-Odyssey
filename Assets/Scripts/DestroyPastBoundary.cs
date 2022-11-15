@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class DestroyObjectBoundary : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void destroyOutOfBoundsEntity(Entity entity)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (entity.transform.position.x > entity.maxXDestroyBoundary || 
+            entity.transform.position.x < entity.minXDestroyBoundary || 
+            entity.transform.position.y > entity.maxYDestroyBoundary || 
+            entity.transform.position.y < entity.minYDestroyBoundary )
+        {
+            Destroy(entity.gameObject);
+        }
     }
 }
