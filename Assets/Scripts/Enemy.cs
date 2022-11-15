@@ -6,9 +6,8 @@ public class Enemy : Entity
 
     private void FixedUpdate()
     {
-        MoveForward();
-        //MoveEnemyZigZag();
-        DestroyObjectBoundary.DestroyOutOfBoundsEntity(this);
+        MoveEnemyZigZag();
+
     }
 
     // Enemy moves in a straight line
