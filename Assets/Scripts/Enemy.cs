@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public int movementDirection = 1;
+
     private void FixedUpdate()
     {
-        //MoveForward();
-        MoveDiagonallyUpwards();
+        MoveEnemyZigZag();
     }
 
     // Enemy moves in a straight line
@@ -14,9 +15,13 @@ public class Enemy : Entity
         transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
     }
 
-    // Enemy moves upward diagonally
-    private void MoveDiagonallyUpwards()
+    // General Zig-zag Enemy movement
+    private void MoveEnemyZigZag()
     {
-        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y + speed * Time.deltaTime);
+        if (transform.position.y >= maxYBoundary) 
+            movementDirection = -1;
+        else if (transform.position.y <= minYBoundary) 
+            movementDirection = 1;
+        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y + movementDirection * speed * Time.deltaTime);
     }
 }

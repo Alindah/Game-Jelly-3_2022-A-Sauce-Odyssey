@@ -5,6 +5,10 @@ using UnityEngine;
  */
 public class Entity : MonoBehaviour
 {
+    [Header("ATTRIBUTES")]
     public float speed;
     public int health;
+    public int minYBoundary;
+    public int maxYBoundary;
+
 }
