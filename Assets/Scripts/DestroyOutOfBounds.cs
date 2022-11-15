@@ -15,7 +15,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         DestroyOutOfBoundsEntity();
     }
 
-    public void DestroyOutOfBoundsEntity ()
+    private void DestroyOutOfBoundsEntity ()
     {
         if (transform.position.x > maxXDestroyBoundary || 
             transform.position.x < minXDestroyBoundary || 

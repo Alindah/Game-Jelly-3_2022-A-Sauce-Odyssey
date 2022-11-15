@@ -7,7 +7,6 @@ public class Enemy : Entity
     private void FixedUpdate()
     {
         MoveEnemyZigZag();
-
     }
 
     // Enemy moves in a straight line
