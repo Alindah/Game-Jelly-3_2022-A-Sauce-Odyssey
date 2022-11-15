@@ -349,7 +349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 0.9056604, g: 0.08885722, b: 0.119853765, a: 1}
   m_FlipX: 0
@@ -392,6 +392,10 @@ MonoBehaviour:
   health: 1
   minYBoundary: -2
   maxYBoundary: 5
+  minXDestroyBoundary: -15
+  maxXDestroyBoundary: 15
+  minYDestroyBoundary: -10
+  maxYDestroyBoundary: 10
   movementDirection: -1
 --- !u!1 &1956514661
 GameObject:
@@ -451,7 +455,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 0.11764705, g: 0.14789663, b: 0.7647059, a: 1}
   m_FlipX: 0
@@ -494,3 +498,7 @@ MonoBehaviour:
   health: 1
   minYBoundary: 0
   maxYBoundary: 0
+  minXDestroyBoundary: -15
+  maxXDestroyBoundary: 15
+  minYDestroyBoundary: -10
+  maxYDestroyBoundary: 10
