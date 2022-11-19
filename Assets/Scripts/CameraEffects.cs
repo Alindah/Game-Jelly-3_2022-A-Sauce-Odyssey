@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 public class CameraEffects : MonoBehaviour
 {
   private static float magnitude;
+
   public enum Magnitude
   {
     Soft,
@@ -33,7 +34,6 @@ public class CameraEffects : MonoBehaviour
     }
   }
 
-
   private static Vector3 RandomCameraPosition()
   {
     int randomX = Random.Range(-2, 2);
@@ -43,27 +43,26 @@ public class CameraEffects : MonoBehaviour
 
   public static async void ShakeCamera(Camera camera, float duration, Magnitude magnitude, Vector3 initialCameraPos)
   {
-    Quaternion initialCameraRotation = camera.transform.rotation;
+    Quaternion cameraRotation = camera.transform.rotation;
 
     // set magnitude 
     SetMagnitude(magnitude);
-
     float endTime = Time.time + duration;
 
     while (Time.time < endTime)
     {
-      Vector3 cameraPos = RandomCameraPosition();
-      Quaternion cameraRotation = new Quaternion();
+      Vector3 randomCameraPos = RandomCameraPosition();
 
       // lerp camera
-      Vector3 newPos = Vector3.Lerp(camera.transform.position, cameraPos, CameraEffects.magnitude);
+      Vector3 newCameraPos = Vector3.Lerp(camera.transform.position, randomCameraPos, CameraEffects.magnitude);
+
       // set new camera pos
-      camera.transform.SetPositionAndRotation(newPos, cameraRotation);
+      camera.transform.SetPositionAndRotation(newCameraPos, cameraRotation);
       await Task.Yield();
     }
 
     // reset camera to its original position
-    camera.transform.SetPositionAndRotation(initialCameraPos, initialCameraRotation);
+    camera.transform.SetPositionAndRotation(initialCameraPos, cameraRotation);
   }
 
 }
