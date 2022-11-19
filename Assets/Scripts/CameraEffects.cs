@@ -1,46 +1,33 @@
 using System.Collections;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class CameraEffects : MonoBehaviour
 {
 
-  public static Vector3 RandomCameraPosition()
+  private static Vector3 RandomCameraPosition()
   {
     int randomX = Random.Range(-2, 2);
     int randomY = Random.Range(-2, 2);
     return new Vector3(randomX, randomY, -10);
   }
 
-  public static IEnumerator ShakeCamera(Camera camera, int duration)
+  public static async void ShakeCamera(Camera camera, float duration, Vector3 initialCameraPos)
   {
-    Vector3 initialCameraPos = new Vector3(
-        camera.transform.position.x,
-        camera.transform.position.y,
-        camera.transform.position.z
-    );
     Quaternion initialCameraRotation = camera.transform.rotation;
-    WaitForSeconds wait = new WaitForSeconds(0.5f);
-    int loopCount = 0;
 
+    float end = Time.time + duration;
 
-    while (true)
+    while (Time.time < end)
     {
-      if (loopCount >= duration)
-      {
-        break;
-      }
-
       Vector3 cameraPos = RandomCameraPosition();
       Quaternion cameraRotation = new Quaternion();
       camera.transform.SetPositionAndRotation(cameraPos, cameraRotation);
-
-      loopCount++;
-      yield return wait;
+      await Task.Yield();
     }
 
-    Debug.Log(initialCameraPos);
-
-    // reset camera
+    // reset camera to its original position
     camera.transform.SetPositionAndRotation(initialCameraPos, initialCameraRotation);
   }
+
 }

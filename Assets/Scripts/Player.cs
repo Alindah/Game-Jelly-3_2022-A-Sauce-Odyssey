@@ -27,8 +27,8 @@ public class Player : Entity
 
     if (kb.numpad0Key.IsPressed())
     {
-      StartCoroutine(CameraEffects.ShakeCamera(Camera.main, 3));
-
+      Vector3 initialCameraPos = new Vector3(0.0f, 0.0f, -10.0f);
+      CameraEffects.ShakeCamera(Camera.main, 0.5f, initialCameraPos);
     }
   }
 }
