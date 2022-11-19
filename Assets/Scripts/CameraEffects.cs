@@ -4,6 +4,35 @@ using System.Threading.Tasks;
 
 public class CameraEffects : MonoBehaviour
 {
+  private static float magnitude;
+  public enum Magnitude
+  {
+    Soft,
+    Hard,
+    Extreme,
+  }
+
+  private static void SetMagnitude(Magnitude magnitude)
+  {
+    switch (magnitude)
+    {
+      case Magnitude.Soft:
+        CameraEffects.magnitude = .1f;
+        break;
+
+      case Magnitude.Hard:
+        CameraEffects.magnitude = 2f;
+        break;
+
+      case Magnitude.Extreme:
+        CameraEffects.magnitude = 10f;
+        break;
+
+      default:
+        break;
+    }
+  }
+
 
   private static Vector3 RandomCameraPosition()
   {
@@ -12,17 +41,24 @@ public class CameraEffects : MonoBehaviour
     return new Vector3(randomX, randomY, -10);
   }
 
-  public static async void ShakeCamera(Camera camera, float duration, Vector3 initialCameraPos)
+  public static async void ShakeCamera(Camera camera, float duration, Magnitude magnitude, Vector3 initialCameraPos)
   {
     Quaternion initialCameraRotation = camera.transform.rotation;
 
-    float end = Time.time + duration;
+    // set magnitude 
+    SetMagnitude(magnitude);
 
-    while (Time.time < end)
+    float endTime = Time.time + duration;
+
+    while (Time.time < endTime)
     {
       Vector3 cameraPos = RandomCameraPosition();
       Quaternion cameraRotation = new Quaternion();
-      camera.transform.SetPositionAndRotation(cameraPos, cameraRotation);
+
+      // lerp camera
+      Vector3 newPos = Vector3.Lerp(camera.transform.position, cameraPos, CameraEffects.magnitude);
+      // set new camera pos
+      camera.transform.SetPositionAndRotation(newPos, cameraRotation);
       await Task.Yield();
     }
 
