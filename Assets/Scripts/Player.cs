@@ -5,8 +5,6 @@ public class Player : Entity
 {
     private void FixedUpdate()
     {
-        if (health <= 0)
-            Debug.Log("Game Over");
         MovePlayer();
     }
 
