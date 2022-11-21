@@ -15,7 +15,7 @@ public class OnCollision : MonoBehaviour
         {
             player.health -= 1;
             Destroy(collision.gameObject);
-            Debug.Log("Player has been hit, health is now: " + gameObject.GetComponent<Player>().health);
+            Debug.Log("Player has been hit, health is now: " + player.health);
             if (player.health <= 0)
                 Debug.Log("Game Over");
         }
