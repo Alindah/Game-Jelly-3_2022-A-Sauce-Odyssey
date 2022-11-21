@@ -3,7 +3,8 @@ public class OnCollision : MonoBehaviour
 {
     private Player player;
 
-    private void Start() {
+    private void Start() 
+    {
         {
            player = gameObject.GetComponent<Player>(); 
         }
