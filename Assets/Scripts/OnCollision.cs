@@ -5,9 +5,7 @@ public class OnCollision : MonoBehaviour
 
     private void Start() 
     {
-        {
-           player = gameObject.GetComponent<Player>(); 
-        }
+        player = gameObject.GetComponent<Player>(); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
