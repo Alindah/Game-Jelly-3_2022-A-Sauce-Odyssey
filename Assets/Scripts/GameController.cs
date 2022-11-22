@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform spawnerContainer;
 
     private Keyboard kb;
 
@@ -17,6 +18,6 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         if (kb.iKey.isPressed)
-            Instantiate(enemyPrefab);
+            Instantiate(enemyPrefab, spawnerContainer);
     }
 }
