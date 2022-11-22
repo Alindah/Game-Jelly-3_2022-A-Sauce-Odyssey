@@ -472,6 +472,7 @@ MonoBehaviour:
   health: 1
   minYBoundary: 0
   maxYBoundary: 0
+  meatball: {fileID: 5053046508600323875, guid: f0020270661f0f2479aaaff7cdceff9a, type: 3}
 --- !u!61 &1956514666
 BoxCollider2D:
   m_ObjectHideFlags: 0
