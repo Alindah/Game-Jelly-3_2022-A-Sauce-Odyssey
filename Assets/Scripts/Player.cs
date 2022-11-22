@@ -38,7 +38,7 @@ public class Player : Entity
         if (kb.downArrowKey.IsPressed() || kb.sKey.IsPressed())
             transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
         
-        // we need to fix this. currently fires a meatball for every frame that spacebar is depressed 
+        // Fires a meatball when spacebar is pressed
         if (kb.spaceKey.IsPressed())
         {
             if (meatballCooldown < Time.time - lastMeatballFiredTime)
