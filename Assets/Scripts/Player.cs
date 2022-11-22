@@ -3,7 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Player : Entity
 {
+    [Header("MEATBALL PROJECTILES")]
+    [SerializeField] private GameObject projectiles;
     [SerializeField] private GameObject meatball;
+    [SerializeField] private float meatballCooldown = 0.5f;
+    private float lastMeatballFiredTime = 0;
+    
     private Keyboard kb;
 
     private void Start()
@@ -14,10 +19,10 @@ public class Player : Entity
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        PlayerControls();
     }
 
-    private void MovePlayer()
+    private void PlayerControls()
     {
         Keyboard kb = Keyboard.current;
 
@@ -35,6 +40,12 @@ public class Player : Entity
         
         // we need to fix this. currently fires a meatball for every frame that spacebar is depressed 
         if (kb.spaceKey.IsPressed())
-            Instantiate(meatball, transform.position, transform.rotation, gameObject.transform);
+        {
+            if (meatballCooldown < Time.time - lastMeatballFiredTime)
+            {
+                lastMeatballFiredTime = Time.time;
+                Instantiate(meatball, transform.position, transform.rotation, projectiles.transform);
+            }
+        }
     }
 }
