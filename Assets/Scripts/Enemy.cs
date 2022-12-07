@@ -24,4 +24,11 @@ public class Enemy : Entity
             movementDirection = 1;
         transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y + movementDirection * speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.CompareTag("Meatball"))
+            Destroy(other.gameObject);
+            Debug.Log("Enemy Hit");
+    }
 }
