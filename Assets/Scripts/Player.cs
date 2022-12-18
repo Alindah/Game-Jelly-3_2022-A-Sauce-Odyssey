@@ -3,14 +3,27 @@ using UnityEngine.InputSystem;
 
 public class Player : Entity
 {
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
+    [Header("MEATBALL PROJECTILES")]
+    [SerializeField] private GameObject projectiles;
+    [SerializeField] private GameObject meatball;
+    [SerializeField] private float meatballCooldown = 0.5f;
+    private float lastMeatballFiredTime = 0;
 
-    private void MovePlayer()
+    private Keyboard kb;
+
+    private void Start()
     {
         // Set keyboard
+        kb = Keyboard.current;
+    }
+
+    private void FixedUpdate()
+    {
+        PlayerControls();
+    }
+
+    private void PlayerControls()
+    {
         Keyboard kb = Keyboard.current;
 
         // Return if no keyboard detected
@@ -25,6 +38,18 @@ public class Player : Entity
         if (kb.downArrowKey.IsPressed() || kb.sKey.IsPressed())
             transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
 
+
+        // Fires a meatball when spacebar is pressed
+        if (kb.spaceKey.IsPressed())
+        {
+            if (meatballCooldown < Time.time - lastMeatballFiredTime)
+            {
+                lastMeatballFiredTime = Time.time;
+                Instantiate(meatball, transform.position, transform.rotation, projectiles.transform);
+            }
+        }
+
+        // Shakes main camera
         if (kb.oKey.IsPressed())
         {
             GameObject mainCamera = GameObject.Find("Main Camera");

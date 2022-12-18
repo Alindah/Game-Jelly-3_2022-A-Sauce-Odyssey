@@ -3,10 +3,11 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     [Header("BOUNDARIES")]
-    public int minXDestroyBoundary = -15;
-    public int maxXDestroyBoundary = 15;
-    public int minYDestroyBoundary = -10;
-    public int maxYDestroyBoundary = 10;
+
+    [SerializeField] private int minXDestroyBoundary = -15;
+    [SerializeField] private int maxXDestroyBoundary = 15;
+    [SerializeField] private int minYDestroyBoundary = -10;
+    [SerializeField] private int maxYDestroyBoundary = 10;
 
     private void Update()
     {
