@@ -3,15 +3,20 @@ using System.Threading.Tasks;
 
 public class CameraEffects : MonoBehaviour
 {
-    private static Vector3 RandomCameraPosition()
+    [SerializeField] float magnitude;
+    [SerializeField] float duration;
+
+    private Vector3 RandomCameraPosition()
     {
         int randomX = Random.Range(-2, 2);
         int randomY = Random.Range(-2, 2);
         return new Vector3(randomX, randomY, -10);
     }
 
-    public static async void ShakeCamera(Camera camera, float duration, float magnitude, Vector3 initialCameraPos)
+    public async void ShakeCamera(Vector3 initialCameraPos)
     {
+        GameObject camera = this.gameObject;
+        Debug.Log(initialCameraPos);
         Quaternion cameraRotation = camera.transform.rotation;
 
         float endTime = Time.time + duration;
@@ -30,6 +35,7 @@ public class CameraEffects : MonoBehaviour
 
         // reset camera to its original position
         camera.transform.SetPositionAndRotation(initialCameraPos, cameraRotation);
+        Debug.Log(initialCameraPos);
     }
 
 }

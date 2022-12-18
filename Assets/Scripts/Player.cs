@@ -27,8 +27,12 @@ public class Player : Entity
 
         if (kb.oKey.IsPressed())
         {
-            Vector3 initialCameraPos = new Vector3(0.0f, 0.0f, -10.0f);
-            CameraEffects.ShakeCamera(Camera.main, 0.5f, 0.1f, initialCameraPos);
+            GameObject mainCamera = GameObject.Find("Main Camera");
+            Vector3 initialCameraPosition = mainCamera.transform.position;
+            Debug.Log(initialCameraPosition);
+
+            CameraEffects cameraEffects = mainCamera.GetComponent<CameraEffects>();
+            cameraEffects.ShakeCamera(initialCameraPosition);
         }
     }
 }
