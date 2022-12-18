@@ -16,7 +16,6 @@ public class CameraEffects : MonoBehaviour
     public async void ShakeCamera(Vector3 initialCameraPos)
     {
         GameObject camera = this.gameObject;
-        Debug.Log(initialCameraPos);
         Quaternion cameraRotation = camera.transform.rotation;
 
         float endTime = Time.time + duration;
@@ -35,7 +34,6 @@ public class CameraEffects : MonoBehaviour
 
         // reset camera to its original position
         camera.transform.SetPositionAndRotation(initialCameraPos, cameraRotation);
-        Debug.Log(initialCameraPos);
     }
 
 }
