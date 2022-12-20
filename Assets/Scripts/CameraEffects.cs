@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 public class CameraEffects : MonoBehaviour
 {
+    [Header("CAMERA SHAKE")]
     [SerializeField] private float magnitude;
     [SerializeField] private float duration;
 
