@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 public class CameraEffects : MonoBehaviour
 {
-    [SerializeField] float magnitude;
-    [SerializeField] float duration;
+    [SerializeField] private float magnitude;
+    [SerializeField] private float duration;
 
     private Vector3 RandomCameraPosition()
     {
